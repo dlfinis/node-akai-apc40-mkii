@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ -s -d dist/ --ignore node_modules,package.json,npm-debug.log --copy-files",
-    "start": "npm run build && node dist/src/main.js",
-    "pkg": "pkg dist/bin.js --output apc-node-controller.exe"
+    "start": "node bin.js",
+    "pkg": "pkg bin.js --output apc40-midi.exe"
   },
   "bin": "bin.js",
   "pkg": {
