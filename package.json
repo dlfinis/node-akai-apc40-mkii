@@ -1,0 +1,50 @@
+{
+  "name": "apc-node-midi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel ./ -s -d dist/ --ignore node_modules,package.json,npm-debug.log --copy-files",
+    "start": "npm run build && node dist/src/main.js",
+    "pkg": "pkg dist/bin.js --output apc-node-controller.exe"
+  },
+  "bin": "bin.js",
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "assets": "assets/**/*"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-class-properties",
+      "@babel/plugin-transform-runtime"
+    ],
+    "ignore": [
+      "./node_modules",
+      "./package.json",
+      "./npm-debug.log"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/preset-env": "^7.9.0",
+    "easymidi": "^1.0.3",
+    "lodash": "^4.17.15",
+    "lowdb": "^1.0.0",
+    "midi": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-syntax-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "rimraf": "^3.0.2",
+    "tsc": "^1.20150623.0",
+    "tsc-node": "0.0.3"
+  }
+}
