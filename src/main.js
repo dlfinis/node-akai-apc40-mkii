@@ -96,8 +96,8 @@ function main() {
 
     input.on('cc', function (params) {
         //params = {channel: ..., controller: ..., value:...};
-        const vCC = _.find(spFaderAndKnobsKeys, {'current': params.controller});
-        execFn.print('ControlChanger:', params, vCC);
+        const vCC = _.find(spFaderAndKnobsKeys, {'current': params.controller, 'channel': params.channel});
+        execFn.print('ControlChanger:', 'params:', params, "vCC": vCC);
 
         if (vCC) {
             execFn.sendEmitter('noteon', {note: vCC.new, velocity: params.value, channel: params.channel});
